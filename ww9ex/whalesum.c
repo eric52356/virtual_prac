@@ -66,7 +66,9 @@ void whale_summary(int n_sightings, struct pod sightings[n_sightings]) {
     // PUT YOUR CODE HERE
     int species=0;
     struct tally text[MAX_WHALE_SPECIES];
-    while(n_sightings>=0)
+    int x=n_sightings;
+    n_sightings=0;
+    while(n_sightings<=x)
     {
         species=0;
         while(species<=MAX_WHALE_SPECIES)
@@ -77,23 +79,23 @@ void whale_summary(int n_sightings, struct pod sightings[n_sightings]) {
                 text[species].pods++;
                 break;
             }
-            if(text[species].species==NULL)
+            if(strlen(text[species].species)==0)
             {
-                *text[species].species=*sightings[n_sightings].species;
+                strcpy(text[species].species,sightings[n_sightings].species);
                 text[species].whales+=sightings[n_sightings].how_many;
                 text[species].pods++;
                 break;
             }
             species++;
         }
-        n_sightings--;
+        n_sightings++;
     }
     species=0;
     while(species<=MAX_WHALE_SPECIES)
     {
         printf("%d %s pods containing %d whales\n",text[species].pods,text[species].species,text[species].whales);
         species++;
-        if(text[species].species==NULL)
+        if(strlen(text[species].species)==0)
             break;
     }
 }
