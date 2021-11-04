@@ -28,10 +28,5 @@ int main()
         else
             printf("String is not a palindrome\n");    
     }
-    /*if(tag)
-        printf("String is a palindrome\n");
-    else
-        printf("String is not a palindrome\n");*/
-
     return 0;
 }
